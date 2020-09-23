@@ -13,10 +13,17 @@ body {
 .flip-container,
 .front,
 .back {
+    margin: 5px;
     width: 250px;
     height: 250px;
-}
 
+}
+.front,
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* flip speed */
 
