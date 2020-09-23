@@ -7,48 +7,56 @@
     </head>
     <body>
     <div class="container">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <p>FACE RECTO</p>
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front">
+                    <!-- front content -->
                 </div>
-                <div class="flip-card-back">
-                    <p>FACE VERSO</p>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <p>FACE RECTO</p>
-                </div>
-                <div class="flip-card-back">
-                    <p>FACE VERSO</p>
+                <div class="back">
+                    <p>You won</p>
                 </div>
             </div>
         </div>
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <p>FACE RECTO</p>
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front ">
+                    <!-- front content -->
                 </div>
-                <div class="flip-card-back">
-                    <p>FACE VERSO</p>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <p>FACE RECTO</p>
-                </div>
-                <div class="flip-card-back">
-                    <p>FACE VERSO</p>
+                <div class="back">
+                    <p>You won</p>
                 </div>
             </div>
         </div>
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front">
+                    <!-- front content -->
+                </div>
+                <div class="back">
+                    <p>You won</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front ">
+                    <!-- front content -->
+                </div>
+                <div class="back">
+                    <p>You won</p>
+                </div>
+            </div>
+        </div>
+
     </div>
         <script src="main.js"></script>
         <script src="jquery.js"></script>
+        <script>
+            $('.flip-container .flipper').click(function() {
+                $(this).closest('.flip-container').toggleClass('hover');
+                $(this).css('transform, rotateY(180deg)');
+            });
+
+        </script>
     </body>
 </html>
