@@ -1,10 +1,11 @@
 class MemoryCard extends HTMLElement{
-    tabColors = ['red','white','blue','green','yellow']
+    tabValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15];
     color;
+    value;
+
     constructor() {
         super();
-        this.randomColor();
-        this.setAttributes();
+        this.randomValue();
         this.createListeners();
     }
 
@@ -14,6 +15,7 @@ class MemoryCard extends HTMLElement{
         var show = false ;
         this.onclick = function(){
 
+
             if (show === true){
                 this.removeAttribute('style','background:'+this.color+';');
                 show = false;
@@ -22,21 +24,20 @@ class MemoryCard extends HTMLElement{
                 show = true;
             }
 
-            var event = new CustomEvent('cardClicked', { 'detail' : this.color } );
+            var event = new CustomEvent('cardClicked', { 'detail' : this.value } );
+
             this.dispatchEvent(event);
+            console.log(this.value);
         }
     }
-    setAttributes(){
-        this.setAttribute('style','background:'+this.color+';')
-    }
 
-    changeColor(){
-        this.randomColor();
-        this.setAttributes();
-    }
 
     randomColor(){
         this.color = "black";
+
+    randomValue(){
+        this.value = this.tabValues[Math.floor( Math.random()* this.tabValues.length )];
+
     }
 }
 window.customElements.define('memory-card', MemoryCard);

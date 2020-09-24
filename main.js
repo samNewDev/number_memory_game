@@ -10,6 +10,16 @@ $(document).ready(function() {
             console.log(difficulty);
         })
     }
+    function getNbClick() {
+        var clicks = 0;
+        $('.flip-container').click(function() {
+            clicks++; 
+            console.log($(clicks));
+            if (clicks === 2) {
+                clicks = 0;
+            }
+        });
+    }
     /*
     **
     *  $this est le contexte ou est appele le code, dans notre cas c'est la 'card' qui a ete cliauee qui l'appelle
@@ -20,7 +30,6 @@ $(document).ready(function() {
             console.log($(this))
             $(this).closest('.flip-container').toggleClass('hover');
             $(this).css('transform, rotateY(180deg)');
-
         });
     }
 
@@ -35,6 +44,7 @@ $(document).ready(function() {
     start()
     getDifficulty()
     flipCard()
+    getNbClick()
 
     function doSomething(ev) {
         console.log(ev);
@@ -59,13 +69,19 @@ $(document).ready(function() {
 
 var container = document.getElementById("container");
 var card = new MemoryCard();
-card.randomColor()
+
+var val = card.value
+
 
 card.addEventListener('cardClicked', function(ev){
     doSomething(ev);
 })
 container.appendChild(card);
+
 shuffle(tab);
+
+card.append(val)
+
 
 });
 
