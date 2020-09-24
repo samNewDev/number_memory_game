@@ -9,8 +9,19 @@ class MemoryCard extends HTMLElement{
     }
 
     createListeners(){
+        this.randomColor();
+        this.setAttributes();
+        var show = false ;
         this.onclick = function(){
-            this.changeColor();
+
+            if (show === true){
+                this.removeAttribute('style','background:'+this.color+';');
+                show = false;
+            }else {
+                this.setAttribute('style','background:'+this.color+';')
+                show = true;
+            }
+
             var event = new CustomEvent('cardClicked', { 'detail' : this.color } );
             this.dispatchEvent(event);
         }
@@ -25,7 +36,7 @@ class MemoryCard extends HTMLElement{
     }
 
     randomColor(){
-        this.color = this.tabColors[Math.floor( Math.random()* this.tabColors.length )];
+        this.color = "black";
     }
 }
 window.customElements.define('memory-card', MemoryCard);

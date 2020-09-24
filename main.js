@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+
+    var tab = [];
+
     // recupere la valeur selectionee dans le select
     function getDifficulty() {
         $('#submit').click(function () {
@@ -37,14 +40,23 @@ $(document).ready(function() {
         console.log(ev);
     }
 
+    function shuffle(tab) {
+        for (let i = tab.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+        [tab[i], tab[j]] =    [tab[j], tab[i]] ;
+        }
+        console.log(tab)
+    }
 
 var container = document.getElementById("container");
 var card = new MemoryCard();
+card.randomColor()
 
 card.addEventListener('cardClicked', function(ev){
     doSomething(ev);
 })
 container.appendChild(card);
+shuffle(tab);
 
 });
 
