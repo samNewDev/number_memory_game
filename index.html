@@ -5,6 +5,14 @@
         <title>Memory game</title>
         <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            memory-card {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+                margin: 10px;
+            }
+        </style>
     </head>
     <body>
     <div class="selection">
@@ -37,8 +45,8 @@
             </div>
         </div>
     </div>
-    <div class="container" >
-        <div class="flip-container" data-value="1">
+    <div class="container" id="container">
+<!--        <div class="flip-container" data-value="1">
             <div class="flipper">
                 <div class="front">
                     <p>FACE RECTO</p>
@@ -85,11 +93,14 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div>-->
+
     </div>
+
         <script src="jquery.js"></script>
-        <script src="main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="./js/class/Card.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
