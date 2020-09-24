@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-
-    var tab = [];
+    var difficulty;
+    var tab = ["c'est","vraiment","du","sale","le","tmax","en","y","mamene","!"];
 
     // recupere la valeur selectionee dans le select
     function getDifficulty() {
-        $('#submit').click(function () {
-            var difficulty = $('#difficulty_choice').val();
+        $('#start').click(function () {
+            difficulty = $('#difficulty_choice').val();
             console.log(difficulty);
         })
     }
@@ -46,6 +46,15 @@ $(document).ready(function() {
         [tab[i], tab[j]] =    [tab[j], tab[i]] ;
         }
         console.log(tab)
+        implementCards()
+    }
+    function implementCards() {
+        for (let i = 0; i< tab.length; i++){
+            let el = tab[i];
+            // a supprimer
+            container.append(el);
+           // container.appendChild(el);
+        }
     }
 
 var container = document.getElementById("container");
