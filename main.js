@@ -1,26 +1,5 @@
 $(document).ready(function() {
 
-    const template = document.createElement('template');
-    const container = document.getElementById('container');
-
-    template.
-
-    class MemoryCard extends HTMLElement{
-        constructor() {
-            super();
-
-            this._shadowRoot = this.attachShadow({ mode: 'open' });
-            this._shadowRoot.appendChild(template.content.cloneNode(true));
-        }
-    }
-
-    window.customElements.define('my-card', MemoryCard);
-
-
-
-
-
-
     // recupere la valeur selectionee dans le select
     function getDifficulty() {
         $('#submit').click(function () {
@@ -53,5 +32,19 @@ $(document).ready(function() {
     start()
     getDifficulty()
     flipCard()
+
+    function doSomething(ev) {
+        console.log(ev);
+    }
+
+
+var container = document.getElementById("container");
+var card = new MemoryCard();
+
+card.addEventListener('cardClicked', function(ev){
+    doSomething(ev);
+})
+container.appendChild(card);
+
 });
 
