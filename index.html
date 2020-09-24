@@ -4,59 +4,91 @@
         <meta charset="UTF-8">
         <title>Memory game</title>
         <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-    <div class="container">
-        <div class="flip-card" data-value="1">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
+    <div class="selection">
+        <label>Choose your difficulty
+            <select id="difficulty_choice" class="form-control">
+                <option value="10">EASY</option>
+                <option value="20">INTERMEDIATE</option>
+                <option value="30">HARD</option>
+            </select>
+            <button id="start" type="button" class="btn btn-primary">START</button>
+            <button type="reset" class="btn btn-primary">RESET</button>
+            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal">OPEN MODAL</button>
+        </label>
+    </div>
+    <div class="container" >
+        <div class="flip-container" data-value="1">
+            <div class="flipper">
+                <div class="front">
                     <p>FACE RECTO</p>
                 </div>
-                <div class="flip-card-back">
+                <div class="back">
                     <p>FACE VERSO <br/>
                         VALUE = 1
                     </p>
                 </div>
             </div>
         </div>
-        <div class="flip-card" data-value="1">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
+        <div class="flip-container" data-value="1">
+            <div class="flipper">
+                <div class="front ">
                     <p>FACE RECTO</p>
                 </div>
-                <div class="flip-card-back">
+                <div class="back">
                     <p>FACE VERSO <br/>
                         VALUE = 1
                     </p>
                 </div>
             </div>
         </div>
-        <div class="flip-card" data-value="2">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
+        <div class="flip-container" data-value="2">
+            <div class="flipper">
+                <div class="front">
                     <p>FACE RECTO</p>
                 </div>
-                <div class="flip-card-back">
+                <div class="back">
+                    <p>FACE VERSO <br/>
+                        VALUE = 2
+                    </p>
+                </div>
+            </div>
+        <div class="flip-container" data-value="2">
+            <div class="flipper">
+                <div class="front ">
+                    <p>FACE RECTO</p>
+                </div>
+                <div class="back">
                     <p>FACE VERSO <br/>
                         VALUE = 2
                     </p>
                 </div>
             </div>
         </div>
-        <div class="flip-card" data-value="2">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <p>FACE RECTO<br/>
-                        VALUE = 2
-                    </p>
-                </div>
-                <div class="flip-card-back">
-                    <p>FACE VERSO</p>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">CONGRATULATIONS BOIIIIII</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        YOU WIN BOIIIIII
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <script src="main.js"></script>
         <script src="jquery.js"></script>
+        <script src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
