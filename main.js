@@ -5,13 +5,22 @@ $(document).ready(function() {
             console.log(difficulty);
         })
     }
+    function getNbClick() {
+        var clicks = 0;
+        $('.flip-container').click(function() {
+            clicks++; 
+            console.log($(clicks));
+            if (clicks === 2) {
+                clicks = 0;
+            }
+        });
+    }
     function flipCard(){
         $('.flip-container .flipper').click(function() {
             //let val = $(this).attr("data-value")
             console.log($(this))
             $(this).closest('.flip-container').toggleClass('hover');
             $(this).css('transform, rotateY(180deg)');
-
         });
     }
     function start() {
@@ -23,5 +32,6 @@ $(document).ready(function() {
     start()
     getDifficulty()
     flipCard()
+    getNbClick()
 });
 
