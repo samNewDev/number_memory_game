@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        #Carte1A{
+            width:250px;
+            height:250px;
+            background-color: aqua;
+        }
+        #Carte1B{
+            width:250px;
+            height:250px;
+            background-color: blue;
+        }
+        #Carte2A{
+            width:250px;
+            height:250px;
+            background-color: red;
+        }
+        #Carte2B{
+            width:250px;
+            height:250px;
+            background-color: darkred;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="Carte1A" data-ident="1"></div>
+<div id="Carte1B" data-ident="1"></div>
+<div id="Carte2A" data-ident="2"></div>
+<div id="Carte2B" data-ident="2"></div>
+<div id="valeur001"></div>
+
+<script>
+
+    var tour = 1;
+    var valeurA;
+    var valeurB;
+    var carte1A =  document.getElementById('Carte1A')
+    var carte1B =  document.getElementById('Carte1B')
+    var carte2A =  document.getElementById('Carte2A')
+    var carte2B =  document.getElementById('Carte2B')
+
+    carte1A.addEventListener("click", checkvalue);
+    carte1B.addEventListener("click", checkvalue);
+    carte2A.addEventListener("click", checkvalue);
+    carte2B.addEventListener("click", checkvalue);
+
+    function checkvalue() {
+        if (tour === 1){
+            document.getElementById("valeur001").innerHTML = "carte choisie1";
+            setTimeout(deuxiemetour, 10);
+            valeurA = this.dataset.ident;
+            console.log(valeurA)
+        }
+        if (tour === 2){
+            document.getElementById("valeur001").innerHTML = "carte choisie2";
+            valeurB = this.dataset.ident;
+            setTimeout(comparaison, 1000);
+        }
+    }
+
+    function deuxiemetour(){
+        tour++;
+    }
+
+    function nouveautour(){
+        tour--;
+    }
+
+    function comparaison(){
+        if (valeurA === valeurB){
+            document.getElementById("valeur001").innerHTML = "oui";
+            console.log("oui");
+            setTimeout(nouveautour, 10);
+        }
+        if (valeurA !== valeurB){
+            document.getElementById("valeur001").innerHTML = "non";
+            setTimeout(nouveautour, 10);
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>
