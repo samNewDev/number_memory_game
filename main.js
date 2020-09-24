@@ -50,11 +50,13 @@ $(document).ready(function() {
 
 var container = document.getElementById("container");
 var card = new MemoryCard();
+var val = card.value
 
 card.addEventListener('cardClicked', function(ev){
     doSomething(ev);
 })
 container.appendChild(card);
+card.append(val)
 
 });
 
