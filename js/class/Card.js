@@ -10,8 +10,8 @@ class MemoryCard extends HTMLElement{
     }
 
     createListeners(){
-        this.randomColor();
-        this.setAttributes();
+        this.randomValue();
+        //this.setAttributes();
         var show = false ;
         this.onclick = function(){
 
@@ -32,11 +32,11 @@ class MemoryCard extends HTMLElement{
     }
 
 
-    randomColor(){
-        this.color = "black";
+
 
     randomValue(){
         this.value = this.tabValues[Math.floor( Math.random()* this.tabValues.length )];
+        this.color = "black";
 
     }
 }
