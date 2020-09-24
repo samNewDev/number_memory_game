@@ -37,9 +37,7 @@
 
 <script>
 
-    var tour = 1;
-    var valeurA;
-    var valeurB;
+
     var carte1A =  document.getElementById('Carte1A')
     var carte1B =  document.getElementById('Carte1B')
     var carte2A =  document.getElementById('Carte2A')
@@ -50,12 +48,15 @@
     carte2A.addEventListener("click", checkvalue);
     carte2B.addEventListener("click", checkvalue);
 
+    var tour = 1;
+    var valeurA;
+    var valeurB;
+
     function checkvalue() {
         if (tour === 1){
             document.getElementById("valeur001").innerHTML = "carte choisie1";
-            setTimeout(deuxiemetour, 10);
             valeurA = this.dataset.ident;
-            console.log(valeurA)
+            setTimeout(deuxiemetour, 10);
         }
         if (tour === 2){
             document.getElementById("valeur001").innerHTML = "carte choisie2";
@@ -83,9 +84,6 @@
             setTimeout(nouveautour, 10);
         }
     }
-
-
-
 
 </script>
 </body>
