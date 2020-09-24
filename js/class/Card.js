@@ -11,26 +11,28 @@ class MemoryCard extends HTMLElement{
 
     createListeners(){
         this.randomValue();
-        //this.setAttributes();
+        this.setAttributes();
         var show = false ;
         this.onclick = function(){
 
 
-            if (show === true){
+            if (show === false){
                 this.removeAttribute('style','background:'+this.color+';');
-                show = false;
+                show = true;
             }else {
                 this.setAttribute('style','background:'+this.color+';')
-                show = true;
+                show = false;
             }
 
             var event = new CustomEvent('cardClicked', { 'detail' : this.value } );
 
             this.dispatchEvent(event);
-            console.log(this.value);
         }
     }
 
+    setAttributes(){
+        this.setAttribute('style','background:'+this.color+';')
+    }
 
 
 

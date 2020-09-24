@@ -2,9 +2,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
 }
-.container{
+.container, #reset{
     display: none;
     flex-flow: row wrap;
+}
+.selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.reset{
+    display: flex;
+    justify-content: center;
 }
 .flip-container.hover .flipper {
     transform: rotateY(180deg);

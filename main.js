@@ -1,14 +1,32 @@
 $(document).ready(function() {
 
     var difficulty;
-    var tab = ["c'est","vraiment","du","sale","le","tmax","en","y","mamene","!"];
+    var tab = [];
+    var container = document.getElementById("container");
 
-    // recupere la valeur selectionee dans le select
+
+    /*    function flipCard(){
+            $('.flip-container .flipper').click(function() {
+                //let val = $(this).attr("data-value")
+                console.log($(this))
+                $(this).closest('.flip-container').toggleClass('hover');
+                $(this).css('transform, rotateY(180deg)');
+            });
+        }*/
+
+
+    /*
+        function doSomething(ev) {
+            console.log(ev);
+        }*/
+
     function getDifficulty() {
         $('#start').click(function () {
             difficulty = $('#difficulty_choice').val();
-            console.log(difficulty);
+            console.log('difficulty'+difficulty);
+            initGame()
         })
+
     }
     function getNbClick() {
         var clicks = 0;
@@ -20,34 +38,24 @@ $(document).ready(function() {
             }
         });
     }
-    /*
-    **
-    *  $this est le contexte ou est appele le code, dans notre cas c'est la 'card' qui a ete cliauee qui l'appelle
-    */
-    function flipCard(){
-        $('.flip-container .flipper').click(function() {
-            //let val = $(this).attr("data-value")
-            console.log($(this))
-            $(this).closest('.flip-container').toggleClass('hover');
-            $(this).css('transform, rotateY(180deg)');
-        });
-    }
 
-    // pour l'instant cette fonction ne fait que faire disparaitre le "pseudo-formulaire"
-    // et faire apparaitre les cartes quand le button start est actionne
     function start() {
-        $('#start').click(function () {
-            $('.container').attr('style', 'display:flex')
+       $('#start').click(function () {
+            $('.container, #reset').attr('style', 'display:flex')
             $('.selection').hide()
         })
     }
-    start()
-    getDifficulty()
-    flipCard()
-    getNbClick()
 
-    function doSomething(ev) {
-        console.log(ev);
+    function reset() {
+        $('#reset').click( function(){
+            location.reload()
+        })
+    }
+    function initGame() {
+        generateCard()
+        shuffle(tab)
+
+
     }
 
     function shuffle(tab) {
@@ -59,29 +67,44 @@ $(document).ready(function() {
         implementCards()
     }
     function implementCards() {
+        console.log('tablengh'+tab.length)
         for (let i = 0; i< tab.length; i++){
             let el = tab[i];
-            // a supprimer
-            container.append(el);
-           // container.appendChild(el);
+            let val = el.value
+            console.log(val)
+           container.appendChild(el);
+            el.append(val)
         }
     }
 
-var container = document.getElementById("container");
-var card = new MemoryCard();
+    function generateCard(){
 
-var val = card.value
+        for (let i = 0; i < difficulty; i++ ){
+            let card1 = new MemoryCard();
+            //let card2 = new MemoryCard();
+            tab.push(card1);
+            tab.push(card1);
+        }
+        console.log(tab)
+    }
+
+//var card = new MemoryCard();
+//var val = card.value
 
 
-card.addEventListener('cardClicked', function(ev){
+/*card.addEventListener('cardClicked', function(ev){
     doSomething(ev);
-})
-container.appendChild(card);
+})*/
+//container.appendChild(card);
 
-shuffle(tab);
+//shuffle(tab);
 
-card.append(val)
-
-
+//card.append(val)
+    generateCard()
+    start()
+    getDifficulty()
+    getNbClick()
+    reset()
+    //flipCard()
 });
 
