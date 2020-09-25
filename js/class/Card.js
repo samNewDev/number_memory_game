@@ -6,10 +6,10 @@ class MemoryCard extends HTMLElement{
     constructor() {
         super();
         this.randomValue();
-        this.createListeners();
+    //    this.createListeners();
     }
 
-    createListeners(){
+/*    createListeners(){
         this.randomValue();
         //this.setAttributes();
         var show = false ;
@@ -24,12 +24,10 @@ class MemoryCard extends HTMLElement{
                 show = true;
             }
 
-            var event = new CustomEvent('cardClicked', { 'detail' : this.value } );
 
-            this.dispatchEvent(event);
-            console.log(this.value);
+            console.log("toto:"+this.value);
         }
-    }
+    }*/
 
 
 
