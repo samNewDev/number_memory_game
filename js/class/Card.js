@@ -1,5 +1,4 @@
 class MemoryCard extends HTMLElement{
-    tabValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,15];
     color;
     value;
 
@@ -37,7 +36,6 @@ class MemoryCard extends HTMLElement{
 
 
     randomValue(){
-        this.value = this.tabValues[Math.floor( Math.random()* this.tabValues.length )];
         this.color = "black";
 
     }

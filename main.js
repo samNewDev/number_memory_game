@@ -5,14 +5,15 @@ $(document).ready(function() {
     var container = document.getElementById("container");
 
 
-    /*    function flipCard(){
-            $('.flip-container .flipper').click(function() {
-                //let val = $(this).attr("data-value")
-                console.log($(this))
-                $(this).closest('.flip-container').toggleClass('hover');
-                $(this).css('transform, rotateY(180deg)');
-            });
-        }*/
+    function flipCard(){
+        $('memory-card').click(function() {
+            //let val = $(this).attr("data-value")
+            var text = $(this).text()
+            console.log(text)
+            //$(this).closest('.flip-container').toggleClass('hover');
+            //$(this).css('transform, rotateY(180deg)');
+        });
+    }
 
 
     /*
@@ -73,28 +74,27 @@ $(document).ready(function() {
             let val = el.value
             console.log(val)
            container.appendChild(el);
-            el.append(val)
+            //el.append(val)
         }
     }
-
+    var tabVals  = [];
     function generateCard(){
 
         for (let i = 0; i < difficulty; i++ ){
             let card1 = new MemoryCard();
-            //let card2 = new MemoryCard();
+            let card2 = new MemoryCard();
+            card1.append(i + 1);
+            card2.append(i + 1);
+            tabVals.push('tabVals' + (i+1));
             tab.push(card1);
-            tab.push(card1);
+            tab.push(card2);
         }
         console.log(tab)
+        console.log(tabVals)
     }
 
 //var card = new MemoryCard();
 //var val = card.value
-
-
-/*card.addEventListener('cardClicked', function(ev){
-    doSomething(ev);
-})*/
 //container.appendChild(card);
 
 //shuffle(tab);
@@ -105,6 +105,6 @@ $(document).ready(function() {
     getDifficulty()
     getNbClick()
     reset()
-    //flipCard()
+    flipCard()
 });
 
