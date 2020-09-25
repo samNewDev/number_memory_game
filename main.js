@@ -33,8 +33,42 @@ $(document).ready(function() {
     getDifficulty()
     flipCard()
 
-    function doSomething(ev) {
-        console.log(ev);
+    var cardSelected = null;
+    var inter;
+
+    function cardIsClicked(ev){
+        promiseMyTwin(ev)
+            .then(function(result){
+                cardSelected = null;
+                if (result.win) {
+                    cards.map( function(c){
+                        if (c.ref === result.cardSelected.ref || c.ref === result.cardClicked.ref) {
+                            c.blocked = true;
+                        }
+                        return c;
+                    });
+                    console.log('GAGNE');
+                }else{
+                    console.log('PERDU');
+                }
+            }).catch( function(err){ console.log(err);});
+    }
+    function promiseMyTwin(ev) {
+        return new Promise(function(resolve, reject){
+            if (!cardSelected) {
+                cardSelected = ev.detail;
+                inter = setTimeout( function(){
+                    resolve( { win : false } );
+                }, 5000);
+            } else {
+                clearTimeout(inter);
+                if (cardSelected.color === ev.detail.color ){
+                    resolve( { win : true , cardSelected: cardSelected, cardClicked : ev.detail } );
+                } else {
+                    resolve( { win : false } );
+                }
+            }
+        });
     }
 
 
@@ -42,7 +76,7 @@ var container = document.getElementById("container");
 var card = new MemoryCard();
 
 card.addEventListener('cardClicked', function(ev){
-    doSomething(ev);
+    cardIsClicked(ev);
 })
 container.appendChild(card);
 
